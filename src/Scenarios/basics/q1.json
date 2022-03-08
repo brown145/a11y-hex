@@ -1,0 +1,53 @@
+{
+  "title": "Q1",
+  "description": "Obstacle Movement",
+  "source": "https://github.com/Sadgit-HL/Gloomhaven-2nd-printing-assets/raw/master/rules/GH_basic_questions.pdf",
+  "grid": {
+    "orientation": "pointy",
+    "offset": 0,
+    "height": 4,
+    "width": 5
+  },
+  "monsters": {
+    "archer": {
+      "xy": "3,3",
+      "initiative": 1,
+      "actions": [
+        {
+          "move": 2
+        },
+        {
+          "attack": 2,
+          "range": 3
+        }
+      ]
+    },
+    "bones1": {
+      "xy": "1,2",
+      "initiative": 99
+    }
+  },
+  "players": {
+    "spellweaver": {
+      "xy": "0,0",
+      "initiative": 80
+    },
+    "craigheart": {
+      "xy": "1,0",
+      "initiative": 20
+    }
+  },
+  "obstacles": {
+    "box": {
+      "xy": "2,2"
+    }
+  },
+  "traps": {
+    "trap1": {
+      "xy": "3,1"
+    },
+    "trap2": {
+      "xy": "3,2"
+    }
+  }
+}

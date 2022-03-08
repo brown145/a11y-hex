@@ -18,3 +18,13 @@ export const TOKEN_TYPES = {
   Notation: "Notation",
   Trap: "Trap",
 };
+
+export const STANDDEE_STATUS_EFFECTS = {
+  Disarmed: "Disarmed",
+  Immoblized: "Immoblized",
+  Invisible: "Invisible",
+  Muddled: "Muddled",
+  Poisoned: "Poisoned",
+  Stuned: "Stuned",
+  Wounded: "Wounded",
+};

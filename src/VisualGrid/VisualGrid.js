@@ -8,31 +8,32 @@ import { useGridState } from "../contexts/GridContext";
 
 const VisualGrid = () => {
   const SVGref = React.createRef();
+  const scenarioSVG = React.createRef();
   const { grid, targetHex, sourceHex } = useGridState();
 
-  let scenrioSVG;
+  // let scenrioSVG;
 
   React.useEffect(() => {
     if (grid) {
       removeAllChildNodes(SVGref.current);
       const svg = SVG().addTo(SVGref.current).size("100%", "100%");
-      scenrioSVG = ScenrioRenderer(grid, svg);
-      scenrioSVG.init();
+      scenarioSVG.current = ScenrioRenderer(grid, svg);
+      scenarioSVG.current.init();
     }
-  }, [SVGref]);
+  }, [SVGref, grid, scenarioSVG]);
 
   // TODO: need to use z-index to insure highlight over source?
   React.useEffect(() => {
-    if (scenrioSVG && sourceHex) {
-      scenrioSVG.highlightSource(sourceHex);
+    if (scenarioSVG.current && sourceHex) {
+      scenarioSVG.current.highlightSource(sourceHex);
     }
-  }, [SVGref, scenrioSVG, sourceHex]);
+  }, [SVGref, scenarioSVG, sourceHex]);
 
   React.useEffect(() => {
-    if (scenrioSVG && targetHex) {
-      scenrioSVG.highlightTarget(targetHex);
+    if (scenarioSVG.current && targetHex) {
+      scenarioSVG.current.highlightTarget(targetHex);
     }
-  }, [SVGref, scenrioSVG, targetHex]);
+  }, [SVGref, scenarioSVG, targetHex]);
 
   return (
     <>

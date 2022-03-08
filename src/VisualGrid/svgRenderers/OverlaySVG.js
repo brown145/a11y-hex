@@ -5,7 +5,11 @@ function OverlaySVG(svg) {
   function renderOverlay(hex) {
     const centerPoint = findCenterPoint(hex);
     const circleSize = hex?.height() * 0.5;
-    const text = hex?.label.toUpperCase();
+    const token = hex.tokens[0];
+    if (!token) {
+      return;
+    }
+    const text = hex?.tokens[0].toUpperCase();
     const [fill, stroke] = overlayToColors(hex);
 
     const markerAttr = {

@@ -1,5 +1,5 @@
 function hasOverlay(hex) {
-  return !!hex.token;
+  return !!hex.tokens;
 }
 
 export default hasOverlay;

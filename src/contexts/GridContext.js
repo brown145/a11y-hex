@@ -1,13 +1,16 @@
 import React from "react";
-import scenrio from "../Scenrio/scenrio";
+import q1 from "../Scenarios/basics/q1.json";
+import scenrioToGrid from "../Scenarios/utils/scenarioToGrid";
 
 const GridStateContext = React.createContext();
 const GridDispatchContext = React.createContext();
 
+const scenario = scenrioToGrid(q1);
+
 const defaultState = {
-  grid: scenrio,
-  sourceHex: scenrio.get(),
-  targetHex: scenrio.get(),
+  grid: scenario,
+  sourceHex: scenario.get(),
+  targetHex: scenario.get(),
 };
 
 const gridReducer = (state, action) => {
@@ -40,7 +43,7 @@ const moveHexReducer = (currentHex, compassDirection) => {
     return currentHex;
   }
 
-  const newHex = scenrio.neighborsOf(currentHex, compassDirection)[0];
+  const newHex = scenario.neighborsOf(currentHex, compassDirection)[0];
   return newHex ? newHex : currentHex;
 };
 
